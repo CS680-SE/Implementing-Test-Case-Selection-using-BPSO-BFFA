@@ -1,0 +1,19 @@
+
+
+I. LITERATURE REVIEW 
+According to  [1] they have proposed using Particle Swarm Optimization (PSO) to solve the TC selection problem. In their study, PSO was used to maximize requirement coverage and to assess the cost (execution effort) of the Test case selections. Researchers devised a constrained PSO method in which the execution effort serves as a search constraint and the fitness function is the requirements coverage. They created a Binary Constrained PSO (BCPSO) and a hybrid method, BCPSO-FS, that improved the performance of the BCPSO by combining the Forward Selection (FS) algorithm, also known as a greedy search strategy, with the BCPSO. BCPSO and BCPSO-FS outperformed the results obtained by a Random search in the experiments, proving the potential of applying PSO to TC selection. When compared to its individual components, the BCPSO-FS performed well. The high performance of BCPSO-FS was achieved by combining the global search of BCPSO with the local search of the FS algorithm. 
+
+In [2], the paper aims to present an improved test selection optimization model that considers the degree of ambiguity in fault isolation. The model makes use of a matrix of fault test dependency to model the relationship between system faults and test groups. In the proposed model the objective function is used to minimize the test cost under the constraints of Fault Detection Rate (FDR) and fault isolation rate (FIR). For solving the enhanced test selection optimization model, they are using the improved chaotic discrete particle swarm optimization (PSO) algorithm. 
+In [3], Ant Colony and Hybrid Particle Swarm Optimization Algorithms are compared. In the instance of ACO, less than 11% of test cases were able to detect 84.2 percent of problems while requiring just 8.7% of total time, including the algorithm's execution time. The best of 30 runs was picked as the observed result for Mutation Probability 1 percent, 2 percent, and 5 percent, respectively, using a hybrid PSO algorithm with 30 particles and 500 iterations in each run. In comparison to ACO, Hybrid PSO can detect 84.21 percent of problems with only 0.7 percent of total test cases, which is very cost-effective, even though the operating time of Hybrid PSO is much longer. Both algorithms are clearly superior at selecting regression test cases, as evidenced by the results. In a variety of test circumstances, Hybrid PSO outperforms ACO, but it takes longer to run than ACO. During test case selection, they can save about 90% of the execution time.
+Reference:
+[1 ]L. Souza, R. Prudêncio, and F. Barros, A Constrained Particle Swarm Optimization Approach for Test Case Selection. 2010, p. 264.
+
+[2] Lv, X., Zhou, D., Tang, Y. and Ma, L. (2018). An Improved Test Selection Optimization Model Based on Fault Ambiguity Group Isolation and Chaotic Discrete PSO. Complexity, 2018(-), pp.1–10.
+
+[3] A. P. Agrawal and A. Kaur, “A Comprehensive Comparison of Ant Colony and Hybrid Particle Swarm Optimization Algorithms Through Test Case Selection,” in Data Engineering and Intelligent Computing, Singapore, 2018, pp. 397–405. doi: 10.1007/978-981-10-3223-3_38.
+
+
+
+
+
+
