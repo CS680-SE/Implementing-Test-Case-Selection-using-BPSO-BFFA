@@ -49,7 +49,7 @@ The authors in this paper [7] developed two mechanisms for test case selection w
 
 
 Reference:
-[1 ]L. Souza, R. Prudêncio, and F. Barros, A Constrained Particle Swarm Optimization Approach for Test Case Selection. 2010, p. 264.
+[1]L. Souza, R. Prudêncio, and F. Barros, A Constrained Particle Swarm Optimization Approach for Test Case Selection. 2010, p. 264.
 
 [2] Lv, X., Zhou, D., Tang, Y. and Ma, L. (2018). An Improved Test Selection Optimization Model Based on Fault Ambiguity Group Isolation and Chaotic Discrete PSO. Complexity, 2018(-), pp.1–10.
 
