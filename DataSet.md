@@ -1,16 +1,15 @@
 # Adaptive Test Case Selection - Data Sets
 
-These data sets contain information on test case executions and results from the past. It can be used to assess test case priority and selection methods, as well as identify test cases that are most likely to fail on their next run. The duration of a test case's execution, its most recent execution time, and the outcomes of its most recent executions are used to define it.
+These dataset contain information on test case executions and results from the past. It can be used to assess test case priority and selection methods, as well as identify test cases that are most likely to fail on their next run. The duration of a test case's execution, its most recent execution time, and the outcomes of its most recent executions are used to define it.
 
-ABB Robotics Norway provided two of these data sets; the other was published by Google and is included here in its converted form.
+ABB Robotics Norway provided two of these data sets.
 
 
 
 | Data Set          | Test Cases    | CI cycles | Verdicts | Failed |
 | :---------------- |:-------------:| :--------:| :------: |-------:|
 | ABB Paint Control | 89            |    352    | 25,594   | 19.36% | 
-| ABB IOF/ROL       | 1,941         |    320    | 30,319   | 28.43% | 
-| Google GSDTSR     | 5,555         |    336    | 1,260,617| 0.25%  | 
+
 
 ***
 
