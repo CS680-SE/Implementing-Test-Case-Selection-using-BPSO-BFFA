@@ -2,12 +2,22 @@
 
 """Using Libraly"""
 import numpy as np
+import csv
 import random
 from itertools import combinations as cb
 import math
 from copy import deepcopy as dc
 from tqdm import tqdm
 
+ 
+# opening the CSV file
+with open('paintcontrol.csv', mode ='r')as file:
+  # reading the CSV file
+  csvFile = csv.reader(file)
+  # displaying the contents of the CSV file
+  for lines in csvFile:
+        print(lines)
+        
 """Evaluate Function """
 class Evaluate:
     def __init__(self):
