@@ -24,22 +24,22 @@ class Evaluate:
         None
     def evaluate(self,gen):
         None
-    def check_dimentions(self,dim):
+    def check_dimentions(self,D):
         None
 
 """Common Function"""
-def random_search(n,dim):
+def random_search(n,D):
     """
     create genes list
     input:{ n: Number of population, default=20
-            dim: Number of dimension
+            D: Number of dimension
     }
     output:{genes_list → [[0,0,0,1,1,0,1,...]...n]
     }
     """
-    gens=[[0 for g in range(dim)] for _ in range(n)]
+    gens=[[0 for g in range(D)] for _ in range(n)]
     for i,gen in enumerate(gens) :
-        r=random.randint(1,dim)
+        r=random.randint(1,D)
         for _r in range(r):
             gen[_r]=1
         random.shuffle(gen)
@@ -49,14 +49,14 @@ def random_search(n,dim):
 def logsig(n): return 1 / (1 + math.exp(-n))
 def sign(x): return 1 if x > 0 else (-1 if x!=0 else 0)
 
-def BPSO(Eval_Func,n=20,m_i=200,minf=0,dim=None,prog=False,w1=0.5,c1=1,c2=1,vmax=4):
+def BPSO(Eval_Func,n=20,m_i=200,minf=0,D=None,prog=False,w1=0.5,c1=1,c2=1,vmax=4):
     """
     input:{ 
             Eval_Func: Evaluate_Function, type is class
             n: Number of population, default=20
             m_i: Number of max iteration, default=300
             minf: minimazation flag, default=0, 0=maximization, 1=minimazation
-            dim: Number of feature, default=None
+            D: Number of dimension, default=None
             prog: Do you want to use a progress bar?, default=False
             w1: move rate, default=0.5
             c1,c2: It's are two fixed variables, default=1,1
@@ -69,17 +69,17 @@ def BPSO(Eval_Func,n=20,m_i=200,minf=0,dim=None,prog=False,w1=0.5,c1=1,c2=1,vmax
             }
     """
     estimate=Eval_Func().evaluate
-    if dim==None:
-        dim=Eval_Func().check_dimentions(dim)
-    gens=random_search(n,dim)
+    if D==None:
+        D=Eval_Func().check_dimentions(D)
+    gens=random_search(n,D)
     pbest=float("-inf") if minf == 0 else float("inf")
     gbest=float("-inf") if minf == 0 else float("inf")
     #vec=3
     #flag=dr
-    gens=random_search(n,dim)
-    vel=[[random.random()-0.5 for d in range(dim)] for _n in range(n)]
-    one_vel=[[random.random()-0.5 for d in range(dim)] for _n in range(n)]
-    zero_vel=[[random.random()-0.5 for d in range(dim)] for _n in range(n)]
+    gens=random_search(n,D)
+    vel=[[random.random()-0.5 for d in range(D)] for _n in range(n)]
+    one_vel=[[random.random()-0.5 for d in range(D)] for _n in range(n)]
+    zero_vel=[[random.random()-0.5 for d in range(D)] for _n in range(n)]
 
     fit=[float("-inf") if minf == 0 else float("inf") for i in range(n)]
     pbest=dc(fit)
@@ -94,7 +94,7 @@ def BPSO(Eval_Func,n=20,m_i=200,minf=0,dim=None,prog=False,w1=0.5,c1=1,c2=1,vmax
 
     #c1,c2=1,1
     #vmax=4
-    gens_dict={tuple([0]*dim):float("-inf") if minf == 0 else float("inf")}
+    gens_dict={tuple([0]*D):float("-inf") if minf == 0 else float("inf")}
     if prog:
         miter=tqdm(range(m_i))
     else:
@@ -124,12 +124,12 @@ def BPSO(Eval_Func,n=20,m_i=200,minf=0,dim=None,prog=False,w1=0.5,c1=1,c2=1,vmax
             gbest=dc(gg)
             xgbest=dc(xgg)
 
-        oneadd=[[0 for d in range(dim)] for i in range(n)]
-        zeroadd=[[0 for d in range(dim)] for i in range(n)]
+        oneadd=[[0 for d in range(D)] for i in range(n)]
+        zeroadd=[[0 for d in range(D)] for i in range(n)]
         c3=c1*random.random()
         dd3=c2*random.random()
         for i in range(n):
-            for j in range(dim):
+            for j in range(D):
                 if xpbest[i][j]==0:
                     oneadd[i][j]=oneadd[i][j]-c3
                     zeroadd[i][j]=zeroadd[i][j]+c3
@@ -147,7 +147,7 @@ def BPSO(Eval_Func,n=20,m_i=200,minf=0,dim=None,prog=False,w1=0.5,c1=1,c2=1,vmax
         one_vel=[[w1*_v+_a for _v,_a in zip(ov,oa)] for ov,oa in zip(one_vel,oneadd)]
         zero_vel=[[w1*_v+_a for _v,_a in zip(ov,oa)] for ov,oa in zip(zero_vel,zeroadd)]
         for i in range(n):
-            for j in range(dim):
+            for j in range(D):
                 if abs(vel[i][j]) > vmax:
                     zero_vel[i][j]=vmax*sign(zero_vel[i][j])
                     one_vel[i][j]=vmax*sign(one_vel[i][j])
@@ -158,13 +158,13 @@ def BPSO(Eval_Func,n=20,m_i=200,minf=0,dim=None,prog=False,w1=0.5,c1=1,c2=1,vmax
                 else:
                     vel[i][j]=one_vel[i][j]
         veln=[[logsig(s[_s]) for _s in range(len(s))] for s in vel]
-        temp=[[random.random() for d in range(dim)] for _n in range(n)]
+        temp=[[random.random() for d in range(D)] for _n in range(n)]
         for i in range(n):
-            for j in range(dim):
+            for j in range(D):
                 if temp[i][j]<veln[i][j]:
                     gens[i][j]= 0 if gens[i][j] ==1 else 1
                 else:
                     pass
     return gbest,xgbest,xgbest.count(1)
 
- 
+
