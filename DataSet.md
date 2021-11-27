@@ -2,7 +2,7 @@
 
 These dataset contain information on test case executions and results from the past. It can be used to assess test case priority and selection methods, as well as identify test cases that are most likely to fail on their next run. The duration of a test case's execution, its most recent execution time, and the outcomes of its most recent executions are used to define it.
 
-ABB Robotics Norway provided two of these data sets.
+ABB Robotics Norway provided of these dataset.
 
 
 
