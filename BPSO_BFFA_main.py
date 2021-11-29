@@ -7,6 +7,7 @@ import math
 from copy import deepcopy as dc
 from tqdm import tqdm
 import  binary_optimization_multi  as opt
+import tkinter as tk
 
 if __name__ == '__main__':
     from sklearn import svm
@@ -29,7 +30,6 @@ if __name__ == '__main__':
             """
             Setting of evaluation function.
             Here, the correct answer rate is used.
-              anser_label/all_label
             """
             mask=np.array(gen) > 0
             al_data=np.array([al[mask] for al in self.train_d])
@@ -38,16 +38,16 @@ if __name__ == '__main__':
             res=svm.LinearSVC().fit(al_data,self.train_l).predict(al_test_data)
             return np.count_nonzero(self.test_l==res)/len(self.test_l)
             #evaluate with fittness function
-        def check_dimentions(self,dim):
-            if dim==None:
+        def check_first_position_over(self,d):
+            if d==None:
                 return len(self.train_d[0])
             else:
-                return dim
+                return d
 
     alg=["BPSO","BFFA"]
     for al in alg:
         print(al)
-        print("Algorithm:\n\t{0}  {1} {2}".format("best_gen","best_val","number_of_dim"))
+        print("Algorithm:\n\t{0}  {1} {2}".format("Faults of Test Cases","No. of first position cover all faults","Shortest time for test to covering all possible faults (ms) "))
         start=time()
         for t in range(3):
             exec("s,g,l=opt.{0}(Eval_Func=Evaluate, n=20, m_i=50,prog=True)".format(al))
