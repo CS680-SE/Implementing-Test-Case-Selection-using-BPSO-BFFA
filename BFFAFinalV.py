@@ -42,7 +42,7 @@ def random_search(n,D):
             gen[_r]=1
         random.shuffle(gen)
     return gens
-def BFFA(Eval_Func,n=20,m_i=25,minf=0,dim=None,prog=False,gamma=1.0,beta=0.20,alpha=0.25):
+def BFFA(Eval_Func,n=20,m_i=25,minf=0,D=None,prog=False,gamma=1.0,beta=0.20,alpha=0.25):
     """
     input:{ Eval_Func: Evaluate_Function, type is class
             n: Number of population, default=20
@@ -63,3 +63,41 @@ def BFFA(Eval_Func,n=20,m_i=25,minf=0,dim=None,prog=False,gamma=1.0,beta=0.20,al
     #flag=dr
     global_best=float("-inf") if minf == 0 else float("inf")
     pb=float("-inf") if minf == 0 else float("inf")
+    global_position=tuple([0]*D)
+    gen=tuple([0]*D)
+    #gamma=1.0
+    #beta=0.20
+    #alpha=0.25
+    gens_dict = {tuple([0]*dim):float("-inf") if minf == 0 else float("inf")}
+
+    #gens_dict[global_position]=0.001
+    gens=random_search(n,D)
+    #vs = [[random.choice([0,1]) for i in range(length)] for i in range(N)]
+    for gen in gens:
+        if tuple(gen) in gens_dict:
+            score = gens_dict[tuple(gen)]
+        else:
+            score=estimate(gen)
+            gens_dict[tuple(gen)]=score
+        if score > global_best:
+            global_best=score
+            global_position=dc(gen)
+    if prog:
+        miter=tqdm(range(m_i))
+    else:
+        miter=range(m_i)
+    for it in miter:
+        for i,x in enumerate(gens):
+            for j,y in enumerate(gens):
+                if gens_dict[tuple(y)] < gens_dict[tuple(x)]:
+                    gens[j]=exchange_binary(y,gens_dict[tuple(y)])
+                gen = gens[j]
+                if tuple(gen) in gens_dict:
+                    score = gens_dict[tuple(gen)]
+                else:
+                    score=estimate(gens[j])
+                    gens_dict[tuple(gen)]=score
+                if score > global_best if minf==0 else score < global_best:
+                    global_best=score
+                    global_position=dc(gen)
+    return global_best,global_position,global_position.count(1)
