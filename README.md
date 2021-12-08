@@ -1,3 +1,3 @@
   
-# PSO VS Firefly 
+# BPSO VS BFFA 
 ## In test case selection
