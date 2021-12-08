@@ -10,7 +10,7 @@ we use are open source and named<br /> **ABB Paint Control**
 We can introduce it as follows: <br /><br />
 
 | Test Cases | CI-cycles | Verdicts | Failed |
-| :---         |     :---:      |          ---: |     :---:      |
+| :---:         |     :---:      |          ---: |     :---:      |
 | 89   | 352     | 25,594    |     19.36%      |
 
 
