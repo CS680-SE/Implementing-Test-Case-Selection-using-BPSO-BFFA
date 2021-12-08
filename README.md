@@ -18,8 +18,15 @@ We can introduce it as follows: <br /><br />
 
 # Libraries 
  Need to import some libraries such as :<br />
-**numpy,csv,math, tqdm,etc.**
-
+ ```
+import numpy as np
+import csv
+import random
+from itertools import combinations as cb
+import math
+from copy import deepcopy as dc
+from tqdm import tqdm
+```
 
 
 
