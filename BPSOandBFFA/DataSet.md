@@ -18,7 +18,7 @@ The data sets are provided in CSV format (with a ';' delimiter). Because we're l
 
 
 | Column Name       | Content                                             | 
-| :---------------- |----------------------------------------------------:| 
+| :---------------- |:----------------------------------------------------| 
 |    Cycle          | The CI cycle to which this test execution belongs.                                      |   
 |     Id            | Each test execution has a Unique numeric identifier                                     |      
 |     Duration      | The test case's estimated runtime                                                       |    
