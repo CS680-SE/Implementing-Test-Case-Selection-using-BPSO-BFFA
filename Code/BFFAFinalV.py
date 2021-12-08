@@ -33,7 +33,7 @@ def random_search(n,D):
             D: Number of dimension
     }
     output:{genes_list → [[0,0,0,1,1,0,1,...]...n]
-    }
+    } 
     """
     gens=[[0 for g in range(D)] for _ in range(n)]
     for i,gen in enumerate(gens) :
