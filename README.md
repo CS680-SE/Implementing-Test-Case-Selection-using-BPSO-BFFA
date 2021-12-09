@@ -6,7 +6,7 @@ BPSO is an optimistic approach that provides optimum best results in minimum tim
 <br /><br />
 # Datasets <br />
 ## Adaptive Test Case Selection - Data Sets
-These dataset contain information on test case executions and results from the past. It can be used to assess test case priority and selection methods, as well as identify test cases that are most likely to fail on their next run.The duration of a test case's execution, its most recent execution time, and the outcomes of its most recent executions are used to define it. 
+This dataset contains information on test case executions and results from the past. It can be used to assess test case priority and selection methods, as well as identify test cases that are most likely to fail on their next run.The duration of a test case's execution, its most recent execution time, and the outcomes of its most recent executions are used to define it. 
 <br /><br />It's open source dataset named **ABB Paint Control** 
  , We can introduce it as follows: <br /><br />
 
@@ -33,7 +33,7 @@ It is provided in CSV format (with a ';' delimiter). Since we're looking for fai
 |     LastResults   | Previous test results, arranged by ascending age (Failed: True, Passed: False). [ ] is used to separate lists. |        
 |     Verdict       | Test verdict of this test execution (Failed: True, Passed: False)                       |  
 
-<br /> <br /> you can **download** it from:<br /> 
+<br /> <br /> You can **download** it from:<br /> 
 **https://github.com/sqaunderhood/atcs-data#adaptive-test-case-selection---data-sets**
 <br />
 <br />
