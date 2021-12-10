@@ -1,7 +1,7 @@
   
 # BPSO Vs. BFFA 
 ## Comparison between BPSO and BFFA in Test Case Selection
-We introduce a comparison study with aims to reduce test case selection using the Binary Particle Swarm Optimization (BPSO) and Binary FireFly algorithms (BFFA).<br />
+We introduce a comparison study with aims to reduce test case selection using the Binary Particle Swarm Optimization (BPSO) and Binary FireFly algorithms (BFFA).
 BPSO is an optimistic approach that provides optimum best results in minimum time compared to BFFA that covers all possible faults.
 <br /><br />
 # Datasets <br />
